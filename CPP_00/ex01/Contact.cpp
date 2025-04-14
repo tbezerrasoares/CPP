@@ -6,7 +6,7 @@
 /*   By: tbezerra <tbezerra@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/09 13:20:22 by tbezerra          #+#    #+#             */
-/*   Updated: 2025/04/09 17:28:56 by tbezerra         ###   ########.fr       */
+/*   Updated: 2025/04/14 13:50:28 by tbezerra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,4 +94,4 @@ std::string	Contact::getPhoneNumber() const {
 
 std::string	Contact::getDarkestSecret() const {
 	return this->_darkestSecret;
-}
+} 

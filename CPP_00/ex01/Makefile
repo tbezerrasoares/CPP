@@ -6,7 +6,7 @@
 #    By: tbezerra <tbezerra@student.42porto.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/04/09 10:52:57 by tbezerra          #+#    #+#              #
-#    Updated: 2025/04/09 17:14:47 by tbezerra         ###   ########.fr        #
+#    Updated: 2025/04/14 16:47:32 by tbezerra         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,11 +33,11 @@ CFLAGS			=	-Wall -Wextra -Werror -std=c++98
 RM				=	rm -f
 SRC				=	main.cpp\
 					Contact.cpp\
-					PhoneBook.cpp
+					Phonebook.cpp
 
 # -=-=-=-=-=-=- EXECUTION -=-=-=-=-=-=- #
 $(NAME):		${OBJS}
-				@${CC} ${CFLAGS} DEBUG=1 ${OBJS} -o ${NAME}
+				@${CC} ${CFLAGS} -D DEBUG ${OBJS} -o ${NAME}
 				@echo "\n[${WHITE}${YELLOW}$(SBLINK)$$(echo ${NAME} | tr '[:lower:]' '[:upper:]')$(RESET)${WHITE}] ${GREEN}--> created${RESET}\n"
 
 all:			${NAME}

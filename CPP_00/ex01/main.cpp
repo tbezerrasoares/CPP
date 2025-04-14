@@ -6,7 +6,7 @@
 /*   By: tbezerra <tbezerra@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/09 11:34:34 by tbezerra          #+#    #+#             */
-/*   Updated: 2025/04/09 14:23:40 by tbezerra         ###   ########.fr       */
+/*   Updated: 2025/04/14 16:39:15 by tbezerra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,4 @@
 int main()
 {
 	
-	
-	std::cout << "Please enter one of this three commands:\n - ADD (add contact)\n - SEARCH (search in phonebook)\n - EXIT (guess what.. :D ) " << std::endl;
-	std::cout << "phonebook > ";
-	return 0;
 }
