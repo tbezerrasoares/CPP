@@ -6,7 +6,7 @@
 /*   By: tbezerra <tbezerra@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/09 13:20:22 by tbezerra          #+#    #+#             */
-/*   Updated: 2025/04/14 13:50:28 by tbezerra         ###   ########.fr       */
+/*   Updated: 2025/04/22 12:09:25 by tbezerra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,10 @@ static void	getNonEmptyInput(std::string &input, const std::string &prompt) {
 	
 	std::cout << prompt;
 	while (std::getline(std::cin, temp) && temp.empty()) {
+		if (std::cin.eof()) {
+			std::cout << "Exiting program." << std::endl;
+			exit(0);
+		}
 		std::cout << "Input cannot be empty. Please try again: " << std::endl << prompt;
 	}
 	input = temp;
@@ -46,6 +50,11 @@ static bool isPhoneNumber(const std::string &phoneNumber) {
 	{
 		if (!std::isdigit(phoneNumber[i]))
 		{
+			if (std::cin.eof())
+			{
+				std::cout << "Exiting program." << std::endl;
+				exit(0);
+			}
 			std::cout << "Please enter a valid number (no brackets, only '+' and digits allowed)" << std::endl;
 			return (false);
 		}

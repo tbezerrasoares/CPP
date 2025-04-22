@@ -6,13 +6,12 @@
 /*   By: tbezerra <tbezerra@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/09 17:11:32 by tbezerra          #+#    #+#             */
-/*   Updated: 2025/04/15 16:35:32 by tbezerra         ###   ########.fr       */
+/*   Updated: 2025/04/15 16:40:13 by tbezerra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Phonebook.hpp"
 #include "Contact.hpp"
-
 
 int Phonebook::_index = 0;
 
@@ -33,18 +32,6 @@ void Phonebook::add_contact(void){
 	Phonebook::_index++;
 }
 
-/* static void ft_print_s(std::string str)
-{
-	if (str.length() < 10)
-	{
-		std::cout << 10;
-		for (int i = 10 - str.length(); i; i--)
-			std::cout << " ";
-	}
-	else
-		std::cout << str.substr(0, 9) << ".";
-} */
-
 void Phonebook::search_contact(void){
 	int i = 0;
 
@@ -63,12 +50,6 @@ void Phonebook::search_contact(void){
 				contacts[i].getLastName().substr(0, 9) + "." : contacts[i].getLastName()) << "|"
 			<< std::setw(10) << (contacts[i].getNickname().length() > 10 ? 
 		contacts[i].getNickname().substr(0, 9) + "." : contacts[i].getNickname()) << std::endl;
-/* 		ft_print_s(this->contacts[i].getFirstName());
-		std::cout << "|";
-		ft_print_s(this->contacts[i].getLastName());
-		std::cout << "|";
-		ft_print_s(this->contacts[i].getNickname());
-		std::cout << "|" << std::endl; */
 		i++;
 	}
 	std::cout << "---------------------------------------------" << std::endl;

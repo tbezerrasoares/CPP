@@ -1,31 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   megaphone.cpp                                      :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tbezerra <tbezerra@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/09 10:54:04 by tbezerra          #+#    #+#             */
-/*   Updated: 2025/04/21 10:13:01 by tbezerra         ###   ########.fr       */
+/*   Created: 2025/04/21 13:43:52 by tbezerra          #+#    #+#             */
+/*   Updated: 2025/04/21 14:31:23 by tbezerra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
-#include <string>
+#include "Zombie.hpp"
 
-int main(int ac, char **av)
+int main(void)
 {
-	if (ac == 1)
-		std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *" << std::endl;
-	else
-	{
-		for (int i = 1; i < ac; i++)
-		{
-			std::string str(av[i]);
-			for (size_t j = 0; j < str.length(); j++)
-				std::cout << static_cast<char>(std::toupper(str[j]));
-		}
-		std::cout << std::endl;
-	}
+	Zombie *horde = zombieHorde(5, "Zombie");
+	
+	for (int i = 0; i < 5; i++)
+		horde[i].announce();
+	
+	delete[] horde;
 	return (0);
 }

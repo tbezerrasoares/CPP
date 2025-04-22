@@ -1,31 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   megaphone.cpp                                      :+:      :+:    :+:   */
+/*   HumanB.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tbezerra <tbezerra@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/09 10:54:04 by tbezerra          #+#    #+#             */
-/*   Updated: 2025/04/21 10:13:01 by tbezerra         ###   ########.fr       */
+/*   Created: 2025/04/22 14:32:29 by tbezerra          #+#    #+#             */
+/*   Updated: 2025/04/22 15:30:19 by tbezerra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
-#include <string>
+#ifndef HUMANB_HPP
+# define HUMANB_HPP
 
-int main(int ac, char **av)
+#include <string>
+#include "Weapon.hpp"
+
+class HumanB
 {
-	if (ac == 1)
-		std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *" << std::endl;
-	else
-	{
-		for (int i = 1; i < ac; i++)
-		{
-			std::string str(av[i]);
-			for (size_t j = 0; j < str.length(); j++)
-				std::cout << static_cast<char>(std::toupper(str[j]));
-		}
-		std::cout << std::endl;
-	}
-	return (0);
-}
+	private:
+		std::string _name;
+		Weapon *_weapon;
+	public:
+		HumanB(std::string name);
+		~HumanB();
+
+		void attack() const;
+		void setWeapon(Weapon &weapon);
+		void unsetWeapon();
+		Weapon* getWeapon() const;
+};
+
+#endif

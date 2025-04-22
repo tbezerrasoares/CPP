@@ -6,7 +6,7 @@
 /*   By: tbezerra <tbezerra@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/09 11:34:34 by tbezerra          #+#    #+#             */
-/*   Updated: 2025/04/15 14:41:30 by tbezerra         ###   ########.fr       */
+/*   Updated: 2025/04/21 10:28:06 by tbezerra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,13 @@ int main()
 	std::cout << "Avaible commands: ADD, SEARCH, EXIT" << std::endl;
 	while (std::getline(std::cin, command) && command.compare("EXIT"))	
 	{
-		if (command == "ADD")
+		if (std::cin.eof())
+		{
+			std::cout << std::endl;
+			std::cout << "Exiting Phonebook..." << std::endl;
+			return (0);
+		}
+		else if (command == "ADD")
 			pb.add_contact();
 		else if (command == "SEARCH")
 		{
