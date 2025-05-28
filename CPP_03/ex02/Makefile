@@ -5,8 +5,8 @@
 #                                                     +:+ +:+         +:+      #
 #    By: tbezerra <tbezerra@student.42porto.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2025/04/30 13:34:11 by tbezerra          #+#    #+#              #
-#    Updated: 2025/05/21 14:52:24 by tbezerra         ###   ########.fr        #
+#    Created: 2025/05/28 11:41:56 by tbezerra          #+#    #+#              #
+#    Updated: 2025/05/28 15:56:59 by tbezerra         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,7 @@ SBLINK			=	\033[5m
 FBLINK			=	\033[6m
 
 # -=-=-=-=-=-=- VARIABLES -=-=-=-=-=-=- #
-NAME			=	fixed
+NAME			=	ClapTrap
 OBJSDIR    		=	objs
 OBJS			=	${SRC:%.cpp=${OBJSDIR}/%.o}
 INCLUDES		=	-I .
@@ -32,9 +32,9 @@ CC				=	c++
 CFLAGS			=	-Wall -Wextra -Werror -std=c++98
 RM				=	rm -f
 SRC				=	main.cpp \
-					Fixed.cpp
-
-
+					ClapTrap.cpp \
+					ScavTrap.cpp \
+					FragTrap.cpp \
 
 # -=-=-=-=-=-=- EXECUTION -=-=-=-=-=-=- #
 $(NAME):		${OBJS}
