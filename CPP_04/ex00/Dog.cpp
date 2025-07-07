@@ -1,29 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   FragTrap.hpp                                       :+:      :+:    :+:   */
+/*   Dog.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tbezerra <tbezerra@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/28 15:53:54 by tbezerra          #+#    #+#             */
-/*   Updated: 2025/07/07 13:59:34 by tbezerra         ###   ########.fr       */
+/*   Created: 2025/07/04 16:13:48 by tbezerra          #+#    #+#             */
+/*   Updated: 2025/07/04 16:14:04 by tbezerra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FRAGTRAP_HPP
-#define FRAGTRAP_HPP
+#include "Dog.hpp"
 
-#include "ClapTrap.hpp"
+Dog::Dog() {
+	type = "Dog";
+	std::cout << "Dog constructor called" << std::endl;
+}
 
-class FragTrap : public ClapTrap {
-public:
-	FragTrap();
-	FragTrap(std::string name);
-	FragTrap(const FragTrap& other);
-	FragTrap& operator=(const FragTrap& other);
-	~FragTrap();
+Dog::~Dog() {
+	std::cout << "Dog destructor called" << std::endl;
+}
 
-	void highFivesGuys(void);
-};
+Dog::Dog(const Dog& other) : Animal(other) {}
 
-#endif
+Dog& Dog::operator=(const Dog& other) {
+	Animal::operator=(other);
+	return *this;
+}
+
+void Dog::makeSound() const {
+	std::cout << "Woof!" << std::endl;
+}

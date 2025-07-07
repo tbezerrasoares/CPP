@@ -1,29 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   FragTrap.hpp                                       :+:      :+:    :+:   */
+/*   Cat.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tbezerra <tbezerra@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/28 15:53:54 by tbezerra          #+#    #+#             */
-/*   Updated: 2025/07/07 13:59:34 by tbezerra         ###   ########.fr       */
+/*   Created: 2025/07/04 16:14:37 by tbezerra          #+#    #+#             */
+/*   Updated: 2025/07/04 16:14:50 by tbezerra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FRAGTRAP_HPP
-#define FRAGTRAP_HPP
+#include "Cat.hpp"
 
-#include "ClapTrap.hpp"
+Cat::Cat() {
+	type = "Cat";
+	std::cout << "Cat constructor called" << std::endl;
+}
 
-class FragTrap : public ClapTrap {
-public:
-	FragTrap();
-	FragTrap(std::string name);
-	FragTrap(const FragTrap& other);
-	FragTrap& operator=(const FragTrap& other);
-	~FragTrap();
+Cat::~Cat() {
+	std::cout << "Cat destructor called" << std::endl;
+}
 
-	void highFivesGuys(void);
-};
+Cat::Cat(const Cat& other) : Animal(other) {}
 
-#endif
+Cat& Cat::operator=(const Cat& other) {
+	Animal::operator=(other);
+	return *this;
+}
+
+void Cat::makeSound() const {
+	std::cout << "Meow!" << std::endl;
+}

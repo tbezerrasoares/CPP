@@ -1,29 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   FragTrap.hpp                                       :+:      :+:    :+:   */
+/*   Animal.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tbezerra <tbezerra@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/28 15:53:54 by tbezerra          #+#    #+#             */
-/*   Updated: 2025/07/07 13:59:34 by tbezerra         ###   ########.fr       */
+/*   Created: 2025/07/04 16:02:24 by tbezerra          #+#    #+#             */
+/*   Updated: 2025/07/04 16:12:27 by tbezerra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FRAGTRAP_HPP
-#define FRAGTRAP_HPP
+#ifndef ANIMAL_HPP
+#define ANIMAL_HPP
 
-#include "ClapTrap.hpp"
+#include <iostream>
 
-class FragTrap : public ClapTrap {
+class Animal {
+protected:
+    std::string type;
+
 public:
-	FragTrap();
-	FragTrap(std::string name);
-	FragTrap(const FragTrap& other);
-	FragTrap& operator=(const FragTrap& other);
-	~FragTrap();
+    Animal();
+    virtual ~Animal();
+    Animal(const Animal& other);
+    Animal& operator=(const Animal& other);
 
-	void highFivesGuys(void);
+    std::string getType() const;
+    virtual void makeSound() const; // Função virtual para polimorfismo
 };
 
 #endif
+
