@@ -1,33 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.hpp                                         :+:      :+:    :+:   */
+/*   Dog.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tbezerra <tbezerra@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/04 16:02:24 by tbezerra          #+#    #+#             */
-/*   Updated: 2025/07/08 15:53:40 by tbezerra         ###   ########.fr       */
+/*   Created: 2025/07/08 16:41:23 by tbezerra          #+#    #+#             */
+/*   Updated: 2025/07/08 16:52:59 by tbezerra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ANIMAL_HPP
-#define ANIMAL_HPP
+#ifndef DOG_HPP
+#define DOG_HPP
 
-#include <iostream>
+#include "Animal.hpp"
+#include "Brain.hpp"
 
-class Animal {
-protected:
-	std::string type;
+class Dog : public Animal {
+private:
+	Brain* brain;
 
 public:
-	Animal();
-	virtual ~Animal();
-	Animal(const Animal& other);
-	Animal& operator=(const Animal& other);
+	Dog();
+	Dog(const Dog& other);
+	Dog& operator=(const Dog& other);
+	~Dog();
 
-	std::string getType() const;
-	virtual void makeSound() const; // Função virtual para polimorfismo
+	void makeSound() const;
 };
 
 #endif
-

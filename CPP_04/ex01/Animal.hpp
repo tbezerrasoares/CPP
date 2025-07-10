@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: tbezerra <tbezerra@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/04 16:02:24 by tbezerra          #+#    #+#             */
-/*   Updated: 2025/07/08 15:53:40 by tbezerra         ###   ########.fr       */
+/*   Created: 2025/07/08 16:40:54 by tbezerra          #+#    #+#             */
+/*   Updated: 2025/07/08 16:51:30 by tbezerra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,7 @@ public:
 	Animal& operator=(const Animal& other);
 
 	std::string getType() const;
-	virtual void makeSound() const; // Função virtual para polimorfismo
+	virtual void makeSound() const;
 };
 
 #endif
-

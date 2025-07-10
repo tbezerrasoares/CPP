@@ -1,33 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.hpp                                         :+:      :+:    :+:   */
+/*   Brain.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tbezerra <tbezerra@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/04 16:02:24 by tbezerra          #+#    #+#             */
-/*   Updated: 2025/07/08 15:53:40 by tbezerra         ###   ########.fr       */
+/*   Created: 2025/07/08 18:42:16 by tbezerra          #+#    #+#             */
+/*   Updated: 2025/07/08 19:12:02 by tbezerra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ANIMAL_HPP
-#define ANIMAL_HPP
+#ifndef BRAIN_HPP
+#define BRAIN_HPP
 
 #include <iostream>
 
-class Animal {
-protected:
-	std::string type;
+class Brain {
+private:
+	std::string ideas[100];
 
 public:
-	Animal();
-	virtual ~Animal();
-	Animal(const Animal& other);
-	Animal& operator=(const Animal& other);
-
-	std::string getType() const;
-	virtual void makeSound() const; // Função virtual para polimorfismo
+	Brain();
+	Brain(const Brain& other);
+	Brain& operator=(const Brain& other);
+	~Brain();
 };
 
 #endif
-

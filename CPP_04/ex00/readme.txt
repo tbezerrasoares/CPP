@@ -45,3 +45,10 @@ será chamado, demonstrando o que não fazer.
     Métodos sobrescritos
     Uso de ponteiros para objetos base
     Diferença entre funções virtuais e não virtuais
+
+✅ O que são funções virtuais em C++?
+
+Uma função virtual é uma função membro declarada na classe base com a palavra-chave virtual, 
+que permite que as classes derivadas possam sobrescrevê-la.
+Quando você chama essa função através de um ponteiro para a classe base, o C++ irá executar a 
+versão correta da classe derivada, se existir.

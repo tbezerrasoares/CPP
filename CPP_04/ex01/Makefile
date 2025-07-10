@@ -6,7 +6,7 @@
 #    By: tbezerra <tbezerra@student.42porto.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/06/09 11:38:15 by tbezerra          #+#    #+#              #
-#    Updated: 2025/07/07 18:37:22 by tbezerra         ###   ########.fr        #
+#    Updated: 2025/07/08 17:14:23 by tbezerra         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,9 +35,7 @@ SRC				=	main.cpp \
 					Animal.cpp \
 					Dog.cpp \
 					Cat.cpp \
-					WrongAnimal.cpp \
-					WrongCat.cpp \
-					
+					Brain.cpp \
 
 
 # -=-=-=-=-=-=- EXECUTION -=-=-=-=-=-=- #
