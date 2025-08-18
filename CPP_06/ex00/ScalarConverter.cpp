@@ -6,7 +6,7 @@
 /*   By: tbezerra <tbezerra@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/30 13:41:59 by tbezerra          #+#    #+#             */
-/*   Updated: 2025/07/30 19:02:05 by tbezerra         ###   ########.fr       */
+/*   Updated: 2025/08/04 13:42:24 by tbezerra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,12 @@
 #include <sstream>
 #include <cmath>
 #include <cctype>
+
+//Canonical form
+ScalarConverter::ScalarConverter() {}
+ScalarConverter::ScalarConverter(const ScalarConverter&) {}
+ScalarConverter::~ScalarConverter() {}
+ScalarConverter &ScalarConverter::operator=(const ScalarConverter&) {return *this;}
 
 void ScalarConverter::convert(const std::string& literal) {
 	// Caso 1: é um único char (não número)

@@ -5,72 +5,178 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: tbezerra <tbezerra@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/02 18:44:57 by tbezerra          #+#    #+#             */
-/*   Updated: 2025/08/02 18:48:27 by tbezerra         ###   ########.fr       */
+/*   Created: 2025/08/09 15:38:03 by tbezerra          #+#    #+#             */
+/*   Updated: 2025/08/09 15:38:06 by tbezerra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
-#include <string>
+
+/* #include <iostream>
 #include "Array.hpp"
 
-// Struct personalizada para teste
-struct Point {
-	int x, y;
-
-	Point(int x = 0, int y = 0) : x(x), y(y) {}
-
-	// Método público para imprimir
-	void print() const {
-		std::cout << "(" << x << ", " << y << ")";
-	}
+// Struct for test "Complex Array Type from own struct"
+struct s_test {
+	int a;
+	char b;
 };
 
-int main() {
-	std::cout << "==== Teste com inteiros ====" << std::endl;
-	Array<int> a(5);
-	for (std::size_t i = 0; i < a.size(); ++i)
-		a[i] = static_cast<int>(i * 10);
-
-	for (std::size_t i = 0; i < a.size(); ++i)
-		std::cout << "a[" << i << "] = " << a[i] << std::endl;
-
-	std::cout << "\n==== Teste com strings ====" << std::endl;
-	Array<std::string> s(3);
-	s[0] = "Olá";
-	s[1] = "C++";
-	s[2] = "Templates";
-
-	for (std::size_t i = 0; i < s.size(); ++i)
-		std::cout << "s[" << i << "] = " << s[i] << std::endl;
-
-	std::cout << "\n==== Teste com structs (Point) ====" << std::endl;
-	Array<Point> points(2);
-	points[0] = Point(1, 2);
-	points[1] = Point(3, 4);
-
-	for (std::size_t i = 0; i < points.size(); ++i) {
-		std::cout << "points[" << i << "] = ";
-		points[i].print();
-		std::cout << std::endl;
-	}
-
-	std::cout << "\n==== Teste de cópia profunda ====" << std::endl;
-	Array<std::string> s_copy = s;
-	s_copy[0] = "Tchau";
-	std::cout << "s[0] = " << s[0] << ", s_copy[0] = " << s_copy[0] << std::endl;
-
-	std::cout << "\n==== Teste de array vazio ====" << std::endl;
-	Array<float> vazio;
-	std::cout << "Tamanho: " << vazio.size() << std::endl;
-
-	std::cout << "\n==== Teste de exceção por acesso inválido ====" << std::endl;
+int main(int, char**)
+{
+	std::cout << "\033[33m" << std::endl << "Empty Array" << "\033[0m" << std::endl;
+	Array<int> emptyArray;
+	std::cout << "emptyArray size: " << emptyArray.size() << std::endl;
+	
+	
+	std::cout << "\033[33m" << std::endl << "Out of Bounce" << "\033[0m" << std::endl;
 	try {
-		std::cout << a[10] << std::endl; // Fora dos limites
-	} catch (const std::exception& e) {
-		std::cerr << "Erro: " << e.what() << std::endl;
+		std::cout << "emptyArray[5]: " << emptyArray[5] << std::endl;
+	}
+	catch (std::exception &e) {
+		std::cout << e.what() << std::endl;
 	}
 
-	return 0;
-}
+	std::cout << "\033[33m" << std::endl << "Int Array" << "\033[0m" << std::endl;
+	Array<int> intArray(5);
+	int i = 0;
+	while (i < 5) {
+		intArray[i] = i;
+		i++;
+	}
+	std::cout << "intArray size: " << intArray.size() << std::endl;
+	std::cout << "intArray: ";
+	i = 0;
+	while (i < 5) {
+		std::cout << intArray[i] << " ";
+		i++;
+	}
+	std::cout << std::endl;
 
+
+	std::cout << "\033[33m" << std::endl << "Double Array" << "\033[0m" << std::endl;
+	Array<double> doubleArray(10);
+	i = 0;
+    while (i < 10) {
+		doubleArray[i] = i / 2.0;
+		i++;
+	}
+	std::cout << "doubleArray size: " << doubleArray.size() << std::endl;
+	std::cout << "doubleArray: ";
+	i = 0;
+	while (i < 10) {
+		std::cout << doubleArray[i] << " ";
+		i++;
+	}
+	std::cout << std::endl;
+
+
+	std::cout << "\033[33m" << std::endl << "Copy Constructor unsing int array" << "\033[0m" << std::endl;
+    Array<int> intArrayCopy(intArray);
+    std::cout << "intArrayCopy size: " << intArrayCopy.size() << std::endl;
+    std::cout << "intArrayCopy: ";
+    i = 0;
+    while (i < 5) {
+        std::cout << intArrayCopy[i] << " ";
+        i++;
+    }
+    std::cout << std::endl;
+
+
+    std::cout << "\033[33m" << std::endl << "Assignment Operator unsing double array" << "\033[0m" << std::endl;
+    Array<double> doubleArrayAssignment = doubleArray;
+    std::cout << "doubleArrayAssignment size: " << doubleArrayAssignment.size() << std::endl;
+    std::cout << "doubleArrayAssignment: ";
+    i = 0;
+    while (i < 10) {
+        std::cout << doubleArrayAssignment[i] << " ";
+        i++;
+    }
+    std::cout << std::endl;
+
+
+    std::cout << "\033[33m" << std::endl << "Const Instance" << "\033[0m" << std::endl;
+	const Array<int> constIntArray(intArray);
+	std::cout << "constIntArray size: " << constIntArray.size() << std::endl;
+	std::cout << "constIntArray: ";
+	i = 0;
+	while (i < 5) {
+		std::cout << constIntArray[i] << " ";
+		i++;
+	}
+	std::cout << std::endl;
+
+
+    std::cout << "\033[33m" << std::endl << "Complex Array Type from own struct" << "\033[0m" << std::endl;
+	Array<s_test> structArray(6);
+	i = 0;
+	while (i < 6) {
+		structArray[i].a = i;
+		structArray[i].b = 'a' + i;
+		i++;
+	}
+	std::cout << "structArray size: " << structArray.size() << std::endl;
+	std::cout << "structArray: ";
+	i = 0;
+	while (i < 6) {
+		std::cout << structArray[i].a << structArray[i].b << " ";
+		i++;
+	}
+	std::cout << std::endl;
+
+	return (0);
+} */
+
+#include <iostream>
+#include <cstdlib> // srand, rand
+#include <ctime>   // time
+#include <Array.hpp>
+
+#define MAX_VAL 750
+int main(int, char**)
+{
+    Array<int> numbers(MAX_VAL);
+    int* mirror = new int[MAX_VAL];
+    srand(time(NULL));
+    for (int i = 0; i < MAX_VAL; i++)
+    {
+        const int value = rand();
+        numbers[i] = value;
+        mirror[i] = value;
+    }
+    //SCOPE
+    {
+        Array<int> tmp = numbers;
+        Array<int> test(tmp);
+    }
+
+    for (int i = 0; i < MAX_VAL; i++)
+    {
+        if (mirror[i] != numbers[i])
+        {
+            std::cerr << "didn't save the same value!!" << std::endl;
+            return 1;
+        }
+    }
+    try
+    {
+        numbers[0] = 0;
+    }
+    catch(const std::exception& e)
+    {
+        std::cerr << e.what() << '\n';
+    }
+    try
+    {
+        numbers[MAX_VAL - 1] = 0;
+    }
+    catch(const std::exception& e)
+    {
+        std::cerr << e.what() << '\n';
+    }
+
+    for (int i = 0; i < MAX_VAL; i++)
+    {
+        numbers[i] = rand();
+    }
+    delete [] mirror;//
+    return 0;
+}
